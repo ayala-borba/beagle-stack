@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>itau.iti</groupId>
+		<artifactId>iti-starter-parent</artifactId>
+		<version>0.0.18.RELEASE</version>
+		<relativePath/>
+	</parent>
+	<groupId>br.com.zup.beagle</groupId>
+	<artifactId>stack-demo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<description>Zup product stack demo BFF</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<kotlin.version>1.3.70</kotlin.version>
+		<beagle.version>0.1.5</beagle.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>itau.iti</groupId>
+			<artifactId>iti-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>itau.iti</groupId>
+			<artifactId>iti-starter-feign</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>br.com.zup.beagle</groupId>
+			<artifactId>framework</artifactId>
+			<version>${beagle.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
+		<testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.jetbrains.kotlin</groupId>
+				<artifactId>kotlin-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>iti-nexus</id>
+			<name>Iti Nexus Repository</name>
+			<url>https://repo-iti.zup.com.br/repository/iti-jars-all/</url>
+		</repository>
+		<repository>
+			<id>beagle-nexus</id>
+			<name>Beagle Nexus Repository</name>
+			<url>https://repo-iti.zup.com.br/repository/beagle-jars-all/</url>
+		</repository>
+	</repositories>
+
+</project>
