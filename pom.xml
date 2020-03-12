@@ -3,9 +3,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>itau.iti</groupId>
-		<artifactId>iti-starter-parent</artifactId>
-		<version>0.0.18.RELEASE</version>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.5.RELEASE</version>
 		<relativePath/>
 	</parent>
 	<groupId>br.com.zup.beagle</groupId>
@@ -23,8 +23,24 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>itau.iti</groupId>
-			<artifactId>iti-starter-web</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.module</groupId>
+			<artifactId>jackson-module-kotlin</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jetbrains.kotlin</groupId>
+			<artifactId>kotlin-reflect</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jetbrains.kotlin</groupId>
+			<artifactId>kotlin-stdlib-jdk8</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>br.com.zup.beagle</groupId>
@@ -36,6 +52,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 
@@ -51,20 +73,26 @@
 			<plugin>
 				<groupId>org.jetbrains.kotlin</groupId>
 				<artifactId>kotlin-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
+				<configuration>
+					<args>
+						<arg>-Xjsr305=strict</arg>
+					</args>
+					<compilerPlugins>
+						<plugin>spring</plugin>
+					</compilerPlugins>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.jetbrains.kotlin</groupId>
+						<artifactId>kotlin-maven-allopen</artifactId>
+						<version>${kotlin.version}</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>
 
 	<repositories>
-		<repository>
-			<id>iti-nexus</id>
-			<name>Iti Nexus Repository</name>
-			<url>https://repo-iti.zup.com.br/repository/iti-jars-all/</url>
-		</repository>
 		<repository>
 			<id>beagle-nexus</id>
 			<name>Beagle Nexus Repository</name>
