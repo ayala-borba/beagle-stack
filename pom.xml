@@ -27,10 +27,6 @@
 			<artifactId>iti-starter-web</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>itau.iti</groupId>
-			<artifactId>iti-starter-feign</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>br.com.zup.beagle</groupId>
 			<artifactId>framework</artifactId>
 			<version>${beagle.version}</version>
