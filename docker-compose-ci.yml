@@ -5,4 +5,5 @@ services:
     image: adoptopenjdk/maven-openjdk11
     volumes:
       - .:/home/application
-    command: ["/home/application/run-ci.sh"]
+    working_dir: /home/application
+    command: "mvn clean install -U -Dspring.profiles.active=ci"
