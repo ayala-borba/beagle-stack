@@ -10,7 +10,7 @@ node {
       useBuilder = "false"
     }
 
-    buildDockerContainerAWS {
+    buildDockerContainer {
       dockerRepositoryName = "stack-demo"
       dockerFileLocation = "."
       team = "Beagle"
