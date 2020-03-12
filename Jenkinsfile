@@ -1,4 +1,4 @@
-@Library('ZupSharedLibs@marte') _
+@Library('ZupSharedLibs@darwin') _
 node {
 
   try {
